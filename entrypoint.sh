@@ -19,4 +19,5 @@ docker version
 
 docker-compose version
 
-docker --host $DOCKER_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
+cat /tmp/root-ca.crt
+#docker --host $DOCKER_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
