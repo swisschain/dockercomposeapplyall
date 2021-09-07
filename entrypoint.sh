@@ -17,7 +17,8 @@
 
 #ls -la /tmp
 
-docker version
+#docker version
+echo qqq
 
 #docker-compose version
 
