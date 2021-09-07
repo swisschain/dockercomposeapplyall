@@ -15,9 +15,9 @@
 # Client Cettificate Private Key
 #echo "$CLIENT_CERTIFICATE_KEY" | base64 --decode > /tmp/client.key
 
-ls -la /tmp
+#ls -la /tmp
 
-#docker version
+docker version
 
 #docker-compose version
 
