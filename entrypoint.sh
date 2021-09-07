@@ -4,11 +4,11 @@
 set -e
 
 # Root Cettificate to trust SSL Docker Host
-echo "$ROOT_CA_CERTIFICATE" | base64 --decode > /tmp/root-ca.crt
+echo "$ROOT_CA_CERTIFICATE" | base64 -d > /tmp/root-ca.crt
 # Client Cettificate
-echo "$CLIENT_CERTIFICATE" | base64 --decode > /tmp/client.crt
+echo "$CLIENT_CERTIFICATE" | base64 -d > /tmp/client.crt
 # Client Cettificate Private Key
-echo "$CLIENT_CERTIFICATE_KEY" | base64 --decode > /tmp/client.key
+echo "$CLIENT_CERTIFICATE_KEY" | base64 -d > /tmp/client.key
 
 ls -la /tmp
 
