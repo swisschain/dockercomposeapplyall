@@ -9,11 +9,11 @@
 #trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 # Root Cettificate to trust SSL Docker Host
-echo "$ROOT_CA_CERTIFICATE" | base64 --decode > /tmp/root-ca.crt
+#echo "$ROOT_CA_CERTIFICATE" | base64 --decode > /tmp/root-ca.crt
 # Client Cettificate
-echo "$CLIENT_CERTIFICATE" | base64 --decode > /tmp/client.crt
+#echo "$CLIENT_CERTIFICATE" | base64 --decode > /tmp/client.crt
 # Client Cettificate Private Key
-echo "$CLIENT_CERTIFICATE_KEY" | base64 --decode > /tmp/client.key
+#echo "$CLIENT_CERTIFICATE_KEY" | base64 --decode > /tmp/client.key
 
 ls -la /tmp
 
