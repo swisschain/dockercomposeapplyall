@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # exit when any command fails
 #set -e
@@ -17,8 +17,7 @@
 
 #ls -la /tmp
 
-#docker version
-echo qqq
+docker version
 
 #docker-compose version
 
