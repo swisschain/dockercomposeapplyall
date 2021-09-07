@@ -15,8 +15,10 @@ echo "$CLIENT_CERTIFICATE" | base64 --decode > /tmp/client.crt
 # Client Cettificate Private Key
 echo "$CLIENT_CERTIFICATE_KEY" | base64 --decode > /tmp/client.key
 
-docker version
+ls -la /tmp
 
-docker-compose version
+#docker version
 
-docker --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
+#docker-compose version
+
+#docker --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
