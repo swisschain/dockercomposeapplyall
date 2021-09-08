@@ -3,24 +3,38 @@
 # exit when any command fails
 set -e
 
-# Root Cettificate to trust SSL Docker Host
-echo "$ROOT_CA_CERTIFICATE" | base64 -d > /tmp/root-ca.crt
-# Client Cettificate
-echo "$CLIENT_CERTIFICATE" | base64 -d > /tmp/client.crt
-# Client Cettificate Private Key
-echo "$CLIENT_CERTIFICATE_KEY" | base64 -d > /tmp/client.key
+case $MODE in
 
-ls -la /tmp
+  SSH)
+    ssh $DOCKER_VM_HOST
+    ;;
 
-docker version
+  SWARM)
+    # Root Cettificate to trust SSL Docker Host
+    echo "$ROOT_CA_CERTIFICATE" | base64 -d > /tmp/root-ca.crt
+    # Client Cettificate
+    echo "$CLIENT_CERTIFICATE" | base64 -d > /tmp/client.crt
+    # Client Cettificate Private Key
+    echo "$CLIENT_CERTIFICATE_KEY" | base64 -d > /tmp/client.key
 
-docker-compose version
+    ls -la /tmp
 
-docker --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
+    docker version
 
-ls -la 
+    docker-compose version
 
-cd Seq
+    docker --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
 
-docker-compose --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify config
-docker-compose --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
+    ls -la 
+
+    cd Seq
+
+    docker-compose --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify config
+    docker-compose --host $DOCKER_VM_HOST --tlscacert /tmp/root-ca.crt --tlscert /tmp/client.crt --tlskey /tmp/client.key --tlsverify ps -a
+    ;;
+
+  *)
+    echo 'Set MODE variable please'
+    ;;
+esac
+
