@@ -12,11 +12,11 @@ case $MODE in
     echo create ssh know host file
     echo $SSH_KNOW_HOST > /known_hosts
     echo run command
-    #ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
-    ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST << 'EOF'
-       hostname
-       docker-compose -f $SERVICE_YAML_FILE up -d
-    EOF
+    ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
+    #ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST << 'EOF'
+    #   hostname
+    #   docker-compose -f $SERVICE_YAML_FILE up -d
+    #EOF
     ;;
 
   SWARM)
