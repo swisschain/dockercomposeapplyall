@@ -6,16 +6,14 @@ set -e
 case $MODE in
 
   SSH)
-    echo create ssh dir
-    mkdir ~/.ssh
     echo create ssh key
-    echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
-    chmod 400 ~/.ssh/id_rsa
+    echo $SSH_PRIVATE_KEY | base64 -d > /id_rsa
+    chmod 400 /id_rsa
     echo create ssh know host file
-    echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
+    echo $SSH_KNOW_HOST > /known_hosts
     echo run command
     #ssh -i ~/.ssh/id_rsa $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
-    ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=~/.ssh/known_hosts $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
+    ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
     #ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST pwd
     #ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST ls -la 
     #ssh $DOCKER_VM_HOST << EOF
