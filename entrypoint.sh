@@ -10,7 +10,11 @@ case $MODE in
     mkdir ~/.ssh
     echo create ssh key
     echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
+    echo echo env
+    echo $SSH_PRIVATE_KEY 
     chmod 400 ~/.ssh/id_rsa
+    echo echo file
+    ls -la  ~/.ssh/id_rsa
     cat ~/.ssh/id_rsa
     echo create ssh know host file
     echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
