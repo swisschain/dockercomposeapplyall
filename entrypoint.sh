@@ -11,8 +11,10 @@ case $MODE in
     echo create ssh key
     echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
     chmod 400 ~/.ssh/id_rsa
+    cat ~/.ssh/id_rsa
     echo create ssh know host file
     echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
+    cat ~/.ssh/known_hosts
     echo run command
     ssh $DOCKER_VM_HOST hostname
     #ssh $DOCKER_VM_HOST << EOF
