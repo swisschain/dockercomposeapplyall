@@ -13,10 +13,10 @@ case $MODE in
     echo $SSH_KNOW_HOST > /known_hosts
     echo run command
     #ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
-    ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST << PTR
-      hostname
-      docker-compose -f $SERVICE_YAML_FILE up -d
-    PTR
+    echo hostname > /commands
+    echo docker-compose -f $SERVICE_YAML_FILE up -d  >> /commands
+    cat /commands
+    ssh -i /id_rsa -o UserKnownHostsFile=/known_hosts $DOCKER_VM_HOST << /commands
     ;;
 
   SWARM)
