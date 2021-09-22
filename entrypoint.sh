@@ -9,7 +9,7 @@ case $MODE in
     echo create ssh dir
     mkdir ~/.ssh
     echo create ssh key
-    echo $SSH_PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa
+    echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa
     chmod 400 ~/.ssh/id_rsa
     echo create ssh know host file
     echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
