@@ -21,6 +21,7 @@ case $MODE in
     cat ~/.ssh/known_hosts
     echo run command
     ssh -o StrictHostKeyChecking=no $DOCKER_VM_HOST hostname
+    cat ~/.ssh/known_hosts
     #ssh $DOCKER_VM_HOST << EOF
     #  hostname
     #EOF
