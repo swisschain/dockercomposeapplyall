@@ -14,9 +14,10 @@ case $MODE in
     echo create ssh know host file
     echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
     echo run command
-    ssh $DOCKER_VM_HOST << EOF
-      hostname
-    EOF
+    ssh $DOCKER_VM_HOST hostname
+    #ssh $DOCKER_VM_HOST << EOF
+    #  hostname
+    #EOF
     ;;
 
   SWARM)
