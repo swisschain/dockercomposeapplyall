@@ -6,7 +6,17 @@ set -e
 case $MODE in
 
   SSH)
-    ssh $DOCKER_VM_HOST
+    echo create ssh dir
+    mkdir ~/.ssh
+    echo create ssh key
+    echo $SSH_PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa
+    chmod 400 ~/.ssh/id_rsa
+    echo create ssh know host file
+    echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
+    echo run command
+    ssh $DOCKER_VM_HOST << EOF
+      hostname
+    EOF
     ;;
 
   SWARM)
