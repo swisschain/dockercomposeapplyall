@@ -15,9 +15,9 @@ case $MODE in
     echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
     echo run command
     #ssh -i ~/.ssh/id_rsa $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
-    #ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
-    ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST pwd
-    ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST ls -la 
+    ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST docker-compose -f $SERVICE_YAML_FILE up -d
+    #ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST pwd
+    #ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST ls -la 
     #ssh $DOCKER_VM_HOST << EOF
     #  hostname
     #EOF
