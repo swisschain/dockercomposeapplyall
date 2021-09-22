@@ -20,7 +20,7 @@ case $MODE in
     echo $SSH_KNOW_HOST > ~/.ssh/known_hosts
     cat ~/.ssh/known_hosts
     echo run command
-    ssh -o StrictHostKeyChecking=no $DOCKER_VM_HOST hostname
+    ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $DOCKER_VM_HOST hostname
     cat ~/.ssh/known_hosts
     #ssh $DOCKER_VM_HOST << EOF
     #  hostname
